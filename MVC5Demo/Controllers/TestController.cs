@@ -28,6 +28,7 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Person person)
         {
             if (ModelState.IsValid)
@@ -46,6 +47,7 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Person person)
         {
             if (ModelState.IsValid)
@@ -71,6 +73,7 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection form)
         {
             data.Remove(data.First(p => p.Id == id));
