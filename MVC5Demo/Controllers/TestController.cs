@@ -59,5 +59,23 @@ namespace MVC5Demo.Controllers
 
             return View(person);
         }
+
+        public ActionResult Details(int id)
+        {
+            return View(data.FirstOrDefault(p => p.Id == id));
+        }
+
+        public ActionResult Delete(int id)
+        {
+            return View(data.FirstOrDefault(p => p.Id == id));
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection form)
+        {
+            data.Remove(data.First(p => p.Id == id));
+            return RedirectToAction("Index");
+        }
+
     }
 }
