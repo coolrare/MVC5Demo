@@ -78,5 +78,19 @@ namespace MVC5Demo.Controllers
 
             return View(dept);
         }
+
+        public ActionResult Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return HttpNotFound();
+            }
+
+            var dept = db.Department.Find(id);
+
+            return View(dept);
+        }
+
+
     }
 }
