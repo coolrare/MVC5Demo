@@ -205,7 +205,7 @@
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Department" Relationship="Self.FK_dbo_Course_dbo_Department_DepartmentID" FromRole="Course" ToRole="Department" />
           <NavigationProperty Name="Enrollment" Relationship="Self.FK_dbo_Enrollment_dbo_Course_CourseID" FromRole="Course" ToRole="Enrollment" />
-          <NavigationProperty Name="Person" Relationship="Self.CourseInstructor" FromRole="Course" ToRole="Person" />
+          <NavigationProperty Name="Teacher" Relationship="Self.CourseInstructor" FromRole="Course" ToRole="Person" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -229,7 +229,7 @@
           <Property Name="StudentID" Type="Int32" Nullable="false" />
           <Property Name="Grade" Type="Int32" />
           <NavigationProperty Name="Course" Relationship="Self.FK_dbo_Enrollment_dbo_Course_CourseID" FromRole="Enrollment" ToRole="Course" />
-          <NavigationProperty Name="Person" Relationship="Self.FK_dbo_Enrollment_dbo_Person_StudentID" FromRole="Enrollment" ToRole="Person" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_dbo_Enrollment_dbo_Person_StudentID" FromRole="Enrollment" ToRole="Person" />
         </EntityType>
         <EntityType Name="OfficeAssignment">
           <Key>

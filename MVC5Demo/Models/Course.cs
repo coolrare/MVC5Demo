@@ -18,7 +18,7 @@ namespace MVC5Demo.Models
         public Course()
         {
             this.Enrollment = new HashSet<Enrollment>();
-            this.Person = new HashSet<Person>();
+            this.Teacher = new HashSet<Person>();
         }
     
         public int CourseID { get; set; }
@@ -30,6 +30,6 @@ namespace MVC5Demo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Person> Person { get; set; }
+        public virtual ICollection<Person> Teacher { get; set; }
     }
 }
