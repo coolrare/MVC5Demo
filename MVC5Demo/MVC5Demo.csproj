@@ -172,6 +172,7 @@
     <Compile Include="Models\Department.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Department.Partial.cs" />
     <Compile Include="Models\DepartmentEdit.cs" />
     <Compile Include="Models\Enrollment.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
