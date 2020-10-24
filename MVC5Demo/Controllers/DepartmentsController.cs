@@ -1,7 +1,9 @@
 ﻿using MVC5Demo.Models;
+using Omu.ValueInjecter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Http.Results;
 using System.Web.Mvc;
@@ -56,16 +58,13 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, Department department)
+        public ActionResult Edit(int id, DepartmentEdit department)
         {
             if (ModelState.IsValid)
             {
                 var item = db.Department.Find(id);
 
-                item.Name = department.Name;
-                item.Budget = department.Budget;
-                item.StartDate = department.StartDate;
-                item.InstructorID = department.InstructorID;
+                item.InjectFrom(department);
 
                 db.SaveChanges();
 
@@ -81,24 +80,34 @@ namespace MVC5Demo.Controllers
 
         public ActionResult Details(int? id)
         {
-            if (!id.HasValue)
+            if (id == null)
             {
-                return HttpNotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var dept = db.Department.Find(id);
+
+            if (dept == null)
+            {
+                return HttpNotFound();
+            }
 
             return View(dept);
         }
 
         public ActionResult Delete(int? id)
         {
-            if (!id.HasValue)
+            if (id == null)
             {
-                return HttpNotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var dept = db.Department.Find(id);
+
+            if (dept == null)
+            {
+                return HttpNotFound();
+            }
 
             return View(dept);
         }
