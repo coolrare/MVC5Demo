@@ -38,7 +38,7 @@ namespace MVC5Demo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName");
+            ViewBag.InstructorID = new SelectList(db.Person.OrderBy(p => p.FirstName), "ID", "FirstName");
 
             return View(department);
         }
@@ -52,7 +52,7 @@ namespace MVC5Demo.Controllers
 
             var dept = db.Department.Find(id);
 
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName", dept.InstructorID);
+            ViewBag.InstructorID = new SelectList(db.Person.OrderBy(p => p.FirstName), "ID", "FirstName", dept.InstructorID);
 
             return View(dept);
         }
