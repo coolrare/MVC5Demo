@@ -48,7 +48,7 @@ namespace MVC5Demo.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseID,Title,Credits,DepartmentID")] Course course)
+        public ActionResult Create([Bind(Include = "CourseID,Title,Credits,DepartmentID,Memo")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace MVC5Demo.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseID,Title,Credits,DepartmentID")] Course course)
+        public ActionResult Edit([Bind(Include = "CourseID,Title,Credits,DepartmentID,Memo")] Course course)
         {
             if (ModelState.IsValid)
             {
