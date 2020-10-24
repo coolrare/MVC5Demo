@@ -91,6 +91,28 @@ namespace MVC5Demo.Controllers
             return View(dept);
         }
 
+        public ActionResult Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return HttpNotFound();
+            }
 
+            var dept = db.Department.Find(id);
+
+            return View(dept);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection form)
+        {
+            var dept = db.Department.Find(id);
+
+            db.Department.Remove(dept);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
