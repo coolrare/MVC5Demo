@@ -25,7 +25,6 @@ namespace MVC5Demo.Models
         public string Title { get; set; }
         public int Credits { get; set; }
         public int DepartmentID { get; set; }
-        public string Memo { get; set; }
     
         public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
