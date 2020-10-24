@@ -48,9 +48,11 @@ namespace MVC5Demo.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName");
+            var dept = db.Department.Find(id);
 
-            return View(db.Department.Find(id.Value));
+            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName", dept.InstructorID);
+
+            return View(dept);
         }
 
         [HttpPost]
@@ -70,9 +72,11 @@ namespace MVC5Demo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName");
+            var dept = db.Department.Find(id);
 
-            return View(db.Department.Find(id));
+            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName", dept.InstructorID);
+
+            return View(dept);
         }
     }
 }
