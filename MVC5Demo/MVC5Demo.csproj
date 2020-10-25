@@ -193,6 +193,7 @@
     <Compile Include="Models\GetCourseReport_Result.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MustBeEvenAttribute.cs" />
     <Compile Include="Models\OfficeAssignment.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
