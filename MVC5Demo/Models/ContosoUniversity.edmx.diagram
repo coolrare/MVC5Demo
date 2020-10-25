@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="ContosoUniversityModel.Course" Width="1.5" PointX="6.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoUniversityModel.Department" Width="1.5" PointX="4.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoUniversityModel.Enrollment" Width="1.5" PointX="6.625" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ContosoUniversityModel.OfficeAssignment" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContosoUniversityModel.OfficeAssignment" Width="1.75" PointX="2.875" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoUniversityModel.Person" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <AssociationConnector Association="ContosoUniversityModel.FK_dbo_Course_dbo_Department_DepartmentID" ManuallyRouted="false" />
         <AssociationConnector Association="ContosoUniversityModel.FK_dbo_Enrollment_dbo_Course_CourseID" ManuallyRouted="false" />
