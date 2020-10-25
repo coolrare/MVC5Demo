@@ -12,17 +12,24 @@ namespace MVC5Demo.Controllers
 {
     public class DepartmentsController : Controller
     {
-        ContosoUniversityEntities db = new ContosoUniversityEntities();
+        DepartmentRepository repo;
+        PersonRepository repoPerson;
+
+        public DepartmentsController()
+        {
+            repo = RepositoryHelper.GetDepartmentRepository();
+            repoPerson = RepositoryHelper.GetPersonRepository(repo.UnitOfWork);
+        }
 
         // GET: Departments
         public ActionResult Index()
         {
-            return View(db.Department);
+            return View(repo.All());
         }
 
         public ActionResult Create()
         {
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName");
+            ViewBag.InstructorID = new SelectList(repoPerson.All(), "ID", "FirstName");
 
             return View();
         }
@@ -32,13 +39,13 @@ namespace MVC5Demo.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Department.Add(department);
-                db.SaveChanges();
+                repo.Add(department);
+                repo.UnitOfWork.Commit();
 
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InstructorID = new SelectList(db.Person.OrderBy(p => p.FirstName), "ID", "FirstName");
+            ViewBag.InstructorID = new SelectList(repoPerson.All().OrderBy(p => p.FirstName), "ID", "FirstName");
 
             return View(department);
         }
@@ -50,9 +57,9 @@ namespace MVC5Demo.Controllers
                 return HttpNotFound();
             }
 
-            var dept = db.Department.Find(id);
+            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id.Value);
 
-            ViewBag.InstructorID = new SelectList(db.Person.OrderBy(p => p.FirstName), "ID", "FirstName", dept.InstructorID);
+            ViewBag.InstructorID = new SelectList(repoPerson.All().OrderBy(p => p.FirstName), "ID", "FirstName", dept.InstructorID);
 
             return View(dept);
         }
@@ -62,18 +69,18 @@ namespace MVC5Demo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var item = db.Department.Find(id);
+                var item = repo.All().FirstOrDefault(p => p.DepartmentID == id);
 
                 item.InjectFrom(department);
 
-                db.SaveChanges();
+                repo.UnitOfWork.Commit();
 
                 return RedirectToAction("Index");
             }
 
-            var dept = db.Department.Find(id);
+            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id);
 
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName", dept.InstructorID);
+            ViewBag.InstructorID = new SelectList(repoPerson.All(), "ID", "FirstName", dept.InstructorID);
 
             return View(dept);
         }
@@ -85,7 +92,7 @@ namespace MVC5Demo.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var dept = db.Department.Find(id);
+            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id.Value);
 
             if (dept == null)
             {
@@ -102,7 +109,7 @@ namespace MVC5Demo.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var dept = db.Department.Find(id);
+            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id.Value);
 
             if (dept == null)
             {
@@ -115,11 +122,9 @@ namespace MVC5Demo.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
-            var dept = db.Department.Find(id);
-
-            db.Department.Remove(dept);
-
-            db.SaveChanges();
+            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id);
+            repo.Delete(dept);
+            repo.UnitOfWork.Commit();
 
             return RedirectToAction("Index");
         }
