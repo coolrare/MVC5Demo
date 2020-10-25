@@ -20,9 +20,5 @@ namespace MVC5Demo.Models
         public int Credits { get; set; }
         [Required]
         public int DepartmentID { get; set; }
-        
-        public virtual Department Department { get; set; }
-        public virtual ICollection<Enrollment> Enrollment { get; set; }
-        public virtual ICollection<Person> Teacher { get; set; }
     }
 }
