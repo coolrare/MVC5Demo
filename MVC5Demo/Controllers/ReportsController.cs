@@ -55,8 +55,7 @@ SELECT
 	(SELECT COUNT(CourseID) FROM CourseInstructor WHERE (CourseID = Course.CourseID)) AS TeacherCount,
 	(SELECT COUNT(CourseID) FROM Enrollment WHERE (Course.CourseID = Enrollment.CourseID)) AS StudentCount,
 	(SELECT AVG(Cast(Grade as Float)) FROM Enrollment WHERE (Course.CourseID = Enrollment.CourseID)) AS AvgGrade
-FROM   Course
-GROUP BY Course.CourseID, Course.Title").ToList();
+FROM   Course").ToList();
 
             ViewBag.SQL = sb.ToString();
 
@@ -73,8 +72,7 @@ SELECT
 	(SELECT COUNT(CourseID) FROM Enrollment WHERE (Course.CourseID = Enrollment.CourseID)) AS StudentCount,
 	(SELECT AVG(Cast(Grade as Float)) FROM Enrollment WHERE (Course.CourseID = Enrollment.CourseID)) AS AvgGrade
 FROM   Course
-WHERE  Course.CourseID = @p0
-GROUP BY Course.CourseID, Course.Title", id).ToList();
+WHERE  Course.CourseID = @p0", id).ToList();
 
             ViewBag.SQL = sb.ToString();
 
