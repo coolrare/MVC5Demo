@@ -154,6 +154,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetCourseReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseID" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="ContosoUniversityModelStoreContainer">
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseInstructor" EntityType="Self.CourseInstructor" Schema="dbo" store:Type="Tables" />
@@ -353,7 +356,17 @@
             <End Role="Course" EntitySet="Course" />
             <End Role="Person" EntitySet="Person" />
           </AssociationSet>
+          <FunctionImport Name="GetCourseReport" ReturnType="Collection(ContosoUniversityModel.GetCourseReport_Result)">
+            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="GetCourseReport_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="CourseName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TeacherCount" Nullable="true" />
+          <Property Type="Int32" Name="StudentCount" Nullable="true" />
+          <Property Type="Int32" Name="AvgGrade" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -420,6 +433,17 @@
               <ScalarProperty Name="ID" ColumnName="InstructorID" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetCourseReport" FunctionName="ContosoUniversityModel.Store.GetCourseReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ContosoUniversityModel.GetCourseReport_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="TeacherCount" ColumnName="TeacherCount" />
+                <ScalarProperty Name="StudentCount" ColumnName="StudentCount" />
+                <ScalarProperty Name="AvgGrade" ColumnName="AvgGrade" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -190,6 +190,9 @@
     <Compile Include="Models\Enrollment.Partial.cs">
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetCourseReport_Result.cs">
+      <DependentUpon>ContosoUniversity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OfficeAssignment.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
@@ -285,6 +288,7 @@
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
     <Content Include="Views\Reports\CoursesReport1.cshtml" />
+    <Content Include="Views\Reports\CoursesReport4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

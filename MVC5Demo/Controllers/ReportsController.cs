@@ -78,5 +78,23 @@ WHERE  Course.CourseID = @p0", id).ToList();
 
             return View("CoursesReport1", data);
         }
+
+        public ActionResult CoursesReport4(int id)
+        {
+            var data = db.GetCourseReport(id).First();
+
+            ViewBag.SQL = sb.ToString();
+
+            return View(data);
+        }
+
+        public ActionResult CoursesReport5(int id)
+        {
+            var data = db.Database.SqlQuery<CoursesReport1VM>("EXEC GetCourseReport @p0", id).ToList();
+
+            ViewBag.SQL = sb.ToString();
+
+            return View("CoursesReport1", data);
+        }
     }
 }

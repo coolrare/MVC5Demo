@@ -1,0 +1,58 @@
+﻿@model MVC5Demo.Models.GetCourseReport_Result
+
+@{
+    ViewBag.Title = "CoursesReport4";
+}
+
+<h2>CoursesReport4</h2>
+
+<div>
+    <h4>GetCourseReport_Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgGrade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

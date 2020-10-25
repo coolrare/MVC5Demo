@@ -12,6 +12,8 @@ namespace MVC5Demo.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ContosoUniversityEntities : DbContext
     {
@@ -30,5 +32,14 @@ namespace MVC5Demo.Models
         public virtual DbSet<Enrollment> Enrollment { get; set; }
         public virtual DbSet<OfficeAssignment> OfficeAssignment { get; set; }
         public virtual DbSet<Person> Person { get; set; }
+    
+        public virtual ObjectResult<GetCourseReport_Result> GetCourseReport(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("CourseID", courseID) :
+                new ObjectParameter("CourseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCourseReport_Result>("GetCourseReport", courseIDParameter);
+        }
     }
 }
