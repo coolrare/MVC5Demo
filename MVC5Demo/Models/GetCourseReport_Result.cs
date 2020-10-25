@@ -17,6 +17,6 @@ namespace MVC5Demo.Models
         public string CourseName { get; set; }
         public Nullable<int> TeacherCount { get; set; }
         public Nullable<int> StudentCount { get; set; }
-        public Nullable<int> AvgGrade { get; set; }
+        public Nullable<double> AvgGrade { get; set; }
     }
 }

@@ -365,7 +365,7 @@
           <Property Type="String" Name="CourseName" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="TeacherCount" Nullable="true" />
           <Property Type="Int32" Name="StudentCount" Nullable="true" />
-          <Property Type="Int32" Name="AvgGrade" Nullable="true" />
+          <Property Type="Double" Name="AvgGrade" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
