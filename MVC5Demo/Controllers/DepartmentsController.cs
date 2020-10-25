@@ -57,7 +57,7 @@ namespace MVC5Demo.Controllers
                 return HttpNotFound();
             }
 
-            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id.Value);
+            var dept = repo.Get單一筆部門資料(id.Value);
 
             ViewBag.InstructorID = new SelectList(repoPerson.All().OrderBy(p => p.FirstName), "ID", "FirstName", dept.InstructorID);
 
@@ -69,7 +69,7 @@ namespace MVC5Demo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var item = repo.All().FirstOrDefault(p => p.DepartmentID == id);
+                var item = repo.Get單一筆部門資料(id);
 
                 item.InjectFrom(department);
 
@@ -78,7 +78,7 @@ namespace MVC5Demo.Controllers
                 return RedirectToAction("Index");
             }
 
-            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id);
+            var dept = repo.Get單一筆部門資料(id);
 
             ViewBag.InstructorID = new SelectList(repoPerson.All(), "ID", "FirstName", dept.InstructorID);
 
@@ -92,7 +92,7 @@ namespace MVC5Demo.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id.Value);
+            var dept = repo.Get單一筆部門資料(id.Value);
 
             if (dept == null)
             {
@@ -109,7 +109,7 @@ namespace MVC5Demo.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id.Value);
+            var dept = repo.Get單一筆部門資料(id.Value);
 
             if (dept == null)
             {
@@ -122,7 +122,7 @@ namespace MVC5Demo.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
-            var dept = repo.All().FirstOrDefault(p => p.DepartmentID == id);
+            var dept = repo.Get單一筆部門資料(id);
             repo.Delete(dept);
             repo.UnitOfWork.Commit();
 
