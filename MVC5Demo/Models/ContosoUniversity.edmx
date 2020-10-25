@@ -32,6 +32,7 @@
           <Property Name="StartDate" Type="datetime" />
           <Property Name="InstructorID" Type="int" />
           <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Enrollment">
           <Key>
@@ -221,6 +222,7 @@
           <NavigationProperty Name="Course" Relationship="Self.FK_dbo_Course_dbo_Department_DepartmentID" FromRole="Department" ToRole="Course" />
           <NavigationProperty Name="Person" Relationship="Self.FK_dbo_Department_dbo_Instructor_InstructorID" FromRole="Department" ToRole="Person" />
           <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Enrollment">
           <Key>
@@ -357,7 +359,7 @@
             <End Role="Person" EntitySet="Person" />
           </AssociationSet>
           <FunctionImport Name="GetCourseReport" ReturnType="Collection(ContosoUniversityModel.GetCourseReport_Result)">
-            <Parameter Name="CourseID" Mode="In" Type="Int32" />
+          <Parameter Name="CourseID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetCourseReport_Result">
@@ -386,6 +388,7 @@
           <EntitySetMapping Name="Department">
             <EntityTypeMapping TypeName="ContosoUniversityModel.Department">
               <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
