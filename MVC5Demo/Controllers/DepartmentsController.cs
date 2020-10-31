@@ -120,7 +120,8 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection form)
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirm(int id)
         {
             var dept = repo.Get單一筆部門資料(id);
             repo.Delete(dept);
