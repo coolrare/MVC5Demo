@@ -81,5 +81,40 @@ namespace MVC5Demo.Controllers
 
             return View(repoCourse.All());
         }
+
+        [HttpPost]
+        public ActionResult CourseBatchEditLazyBinding(FormCollection form, bool IsEditMode = false)
+        {
+            List<CourseBatchEditVM> data = new List<CourseBatchEditVM>();
+
+            //try
+            //{
+            //    UpdateModel(data);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
+
+            if (TryUpdateModel(data))
+            {
+                foreach (var item in data)
+                {
+                    var course = repoCourse.All().FirstOrDefault(p => p.CourseID == item.CourseID);
+                    course.InjectFrom(item);
+                }
+                repoCourse.UnitOfWork.Commit();
+
+                TempData["CourseBatchEditResult"] = "批次更新成功！";
+
+                return RedirectToAction("CourseBatchEdit");
+            }
+
+            ViewBag.IsEditMode = IsEditMode;
+
+            ViewBag.DepartmentID = new SelectList(repo.All(), "DepartmentID", "Name");
+
+            return View(repoCourse.All());
+        }
     }
 }
