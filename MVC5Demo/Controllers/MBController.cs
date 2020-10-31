@@ -47,17 +47,17 @@ namespace MVC5Demo.Controllers
             return View();
         }
 
+        [ParpareDepartmentListForDropDownList]
         public ActionResult CourseBatchEdit(bool IsEditMode = false)
         {
             ViewData.Model = repoCourse.All();
 
             ViewBag.IsEditMode = IsEditMode;
 
-            ViewBag.DepartmentList = repo.All().Select(p => new { p.DepartmentID, p.Name }).ToList();
-
             return View();
         }
 
+        [ParpareDepartmentListForDropDownList]
         [HttpPost]
         public ActionResult CourseBatchEdit(List<CourseBatchEditVM> data, bool IsEditMode = false)
         {
@@ -76,8 +76,6 @@ namespace MVC5Demo.Controllers
             }
 
             ViewBag.IsEditMode = IsEditMode;
-
-            ViewBag.DepartmentID = new SelectList(repo.All(), "DepartmentID", "Name");
 
             return View(repoCourse.All());
         }
