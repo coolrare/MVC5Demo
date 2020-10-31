@@ -147,6 +147,7 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocalOnlyAttribute.cs" />
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ParpareDepartmentListForDropDownListAttribute.cs" />
     <Compile Include="Controllers\ReportsController.cs" />

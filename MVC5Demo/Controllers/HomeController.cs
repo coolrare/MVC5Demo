@@ -35,6 +35,7 @@ namespace MVC5Demo.Controllers
 #if !DEBUG
         [NonAction]
 #endif
+        [LocalOnly]
         public ActionResult Debug()
         {
             return Content("DEBUG");
