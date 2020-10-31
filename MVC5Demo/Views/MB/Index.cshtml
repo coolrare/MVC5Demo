@@ -1,0 +1,29 @@
+﻿@model MVC5Demo.Models.Department
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    <li>DepartmentId = @Model.DepartmentID</li>
+</ul>
+
+<hr />
+
+<ul>
+    <li>Key1 = @ViewData["Key1"]</li>
+    <li>Key2 = @ViewBag.Key2</li>
+</ul>
+
+<hr />
+
+<ul>
+    <li>Key1 = @ViewBag.Key1</li>
+    <li>Key2 = @ViewData["Key2"]</li>
+</ul>
+
+<hr />
+
+Check Your @Html.ActionLink("TempData[\"Message\"]", "ReadTempData")
