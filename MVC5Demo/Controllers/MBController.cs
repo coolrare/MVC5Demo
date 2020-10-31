@@ -27,7 +27,8 @@ namespace MVC5Demo.Controllers
             {
                 var data = repo.Get單一筆部門資料(id);
                 ViewData.Model = data;
-            } else
+            }
+            else
             {
                 var data = repo.Get單一筆部門資料(1);
                 ViewData.Model = data;
@@ -52,11 +53,13 @@ namespace MVC5Demo.Controllers
 
             ViewBag.IsEditMode = IsEditMode;
 
+            ViewBag.DepartmentList = repo.All().Select(p => new { p.DepartmentID, p.Name }).ToList();
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult CourseBatchEdit(List < CourseBatchEditVM> data, bool IsEditMode = false)
+        public ActionResult CourseBatchEdit(List<CourseBatchEditVM> data, bool IsEditMode = false)
         {
             if (ModelState.IsValid)
             {
@@ -73,6 +76,8 @@ namespace MVC5Demo.Controllers
             }
 
             ViewBag.IsEditMode = IsEditMode;
+
+            ViewBag.DepartmentID = new SelectList(repo.All(), "DepartmentID", "Name");
 
             return View(repoCourse.All());
         }

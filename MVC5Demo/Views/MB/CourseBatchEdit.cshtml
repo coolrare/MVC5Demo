@@ -51,7 +51,7 @@
                     }
                     else
                     {
-                        @Html.DisplayFor(model => data[i].Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DisplayFor(model => data[i].Title)
                     }
                 </td>
                 <td>
@@ -62,11 +62,20 @@
                     }
                     else
                     {
-                        @Html.DisplayFor(model => data[i].Credits, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DisplayFor(model => data[i].Credits)
                     }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => data[i].Department.Name)
+                    @if (ViewBag.IsEditMode == true)
+                    {
+                        @Html.DropDownListFor(modelItem => data[i].DepartmentID, 
+                        new SelectList(ViewBag.DepartmentList, "DepartmentID", "Name", data[i].DepartmentID), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => data[i].Credits, "", new { @class = "text-danger" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => data[i].Department.Name)
+                    }
                 </td>
             </tr>
         }
