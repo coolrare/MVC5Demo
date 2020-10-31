@@ -11,6 +11,8 @@ namespace MVC5Demo.Models
         {
             if (this.Name != "Will" && this.Budget > 100)
             {
+                throw new ArgumentException("ERROR");
+
                 yield return new ValidationResult("您的預算不足", new string[] { "Budget" });
             }
         }
