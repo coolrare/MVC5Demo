@@ -1,0 +1,22 @@
+﻿@model HandleErrorInfo
+@using System.Data.Entity.Validation
+@{
+    var ex = Model.Exception as DbEntityValidationException;
+}
+
+<h1>錯誤。</h1>
+<h2>處理您的要求時發生錯誤。</h2>
+
+<hr />
+
+<ul>
+    @foreach (var err in ex.EntityValidationErrors)
+    {
+        foreach (var verr in err.ValidationErrors)
+        {
+            <li>
+                屬性 @verr.PropertyName 發生錯誤，訊息： @verr.ErrorMessage
+            </li>
+        }
+    }
+</ul>
