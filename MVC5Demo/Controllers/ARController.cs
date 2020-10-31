@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Antlr.Runtime.Misc;
+using MVC5Demo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,13 @@ namespace MVC5Demo.Controllers
 {
     public class ARController : Controller
     {
+        DepartmentRepository repo;
+
+        public ARController()
+        {
+            repo = RepositoryHelper.GetDepartmentRepository();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -44,6 +53,25 @@ namespace MVC5Demo.Controllers
             {
                 return File(Server.MapPath("~/Content/download.jpg"), "image/jpeg");
             }
+        }
+
+        public ActionResult JsonTest()
+        {
+            repo.UnitOfWork.Context.Configuration.LazyLoadingEnabled = false;
+
+            var data = repo.Get單一筆部門資料(1);
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult JsonTest2()
+        {
+            repo.UnitOfWork.Context.Configuration.LazyLoadingEnabled = false;
+
+            var data = repo.Get單一筆部門資料(1);
+
+            return Json(data);
         }
 
     }
