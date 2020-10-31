@@ -67,7 +67,7 @@ namespace MVC5Demo.Controllers
         [HttpPost]
         public ActionResult JsonTest2()
         {
-            repo.UnitOfWork.Context.Configuration.LazyLoadingEnabled = false;
+            //repo.UnitOfWork.Context.Configuration.LazyLoadingEnabled = false;
 
             var data = repo.Get單一筆部門資料(1);
 

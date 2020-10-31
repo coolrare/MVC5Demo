@@ -9,10 +9,10 @@
 
 namespace MVC5Demo.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Script.Serialization;
+
     public partial class Department
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,14 +26,14 @@ namespace MVC5Demo.Models
         public decimal Budget { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<int> InstructorID { get; set; }
-        [JsonIgnore]
+        [ScriptIgnore(ApplyToOverrides = true)]
         public byte[] RowVersion { get; set; }
         public bool IsDeleted { get; set; }
     
-        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [ScriptIgnore(ApplyToOverrides = true)]
         public virtual ICollection<Course> Course { get; set; }
-        [JsonIgnore]
+        [ScriptIgnore(ApplyToOverrides = true)]
         public virtual Person Person { get; set; }
     }
 }
