@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MVC5Demo.Models.Course>
+
+@{
+    ViewBag.Title = "CourseBatchEdit";
+}
+
+<h2>CourseBatchEdit</h2>
+
+@if (TempData["CourseBatchEditResult"] != null)
+{
+    <pre>@TempData["CourseBatchEditResult"]</pre>
+}
+
+@using (Html.BeginForm())
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department.Name)
+            </th>
+        </tr>
+
+        @{
+            var data = Model.ToArray();
+        }
+
+        @for (int i = 0; i < data.Length; i++)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(modelItem => data[i].CourseID)
+                    @Html.DisplayFor(modelItem => data[i].CourseID)
+                </td>
+                <td>
+                    @* item.Title *@
+                    @* data[0].Title *@
+                    @if (ViewBag.IsEditMode == true)
+                    {
+                        @Html.EditorFor(model => data[i].Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => data[i].Title, "", new { @class = "text-danger" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => data[i].Title, new { htmlAttributes = new { @class = "form-control" } })
+                    }
+                </td>
+                <td>
+                    @if (ViewBag.IsEditMode == true)
+                    {
+                        @Html.EditorFor(model => data[i].Credits, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => data[i].Credits, "", new { @class = "text-danger" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => data[i].Credits, new { htmlAttributes = new { @class = "form-control" } })
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].Department.Name)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <input type="submit" value="批次更新" />
+
+}

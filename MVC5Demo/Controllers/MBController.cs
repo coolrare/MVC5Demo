@@ -1,20 +1,24 @@
 ﻿using MVC5Demo.Models;
+using Omu.ValueInjecter;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace MVC5Demo.Controllers
 {
     public class MBController : Controller
     {
+        CourseRepository repoCourse;
         DepartmentRepository repo;
 
         public MBController()
         {
             repo = RepositoryHelper.GetDepartmentRepository();
+            repoCourse = RepositoryHelper.GetCourseRepository(repo.UnitOfWork);
         }
 
         public ActionResult Index(int id = 1)
@@ -40,6 +44,37 @@ namespace MVC5Demo.Controllers
         public ActionResult ReadTempData()
         {
             return View();
+        }
+
+        public ActionResult CourseBatchEdit(bool IsEditMode = false)
+        {
+            ViewData.Model = repoCourse.All();
+
+            ViewBag.IsEditMode = IsEditMode;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CourseBatchEdit(List < CourseBatchEditVM> data, bool IsEditMode = false)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var item in data)
+                {
+                    var course = repoCourse.All().FirstOrDefault(p => p.CourseID == item.CourseID);
+                    course.InjectFrom(item);
+                }
+                repoCourse.UnitOfWork.Commit();
+
+                TempData["CourseBatchEditResult"] = "批次更新成功！";
+
+                return RedirectToAction("CourseBatchEdit");
+            }
+
+            ViewBag.IsEditMode = IsEditMode;
+
+            return View(repoCourse.All());
         }
     }
 }
