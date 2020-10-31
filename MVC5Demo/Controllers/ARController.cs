@@ -1,5 +1,7 @@
 ﻿using Antlr.Runtime.Misc;
 using MVC5Demo.Models;
+using Newtonsoft.Json;
+using Omu.ValueInjecter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +74,25 @@ namespace MVC5Demo.Controllers
             var data = repo.Get單一筆部門資料(1);
 
             return Json(data);
+        }
+
+        public ActionResult JsonTest3()
+        {
+            var data = repo.Get單一筆部門資料(1);
+
+            Response.ContentType = "text/json";
+            return Content(JsonConvert.SerializeObject(data));
+        }
+
+        public ActionResult JsonTest4()
+        {
+            var data = repo.Get單一筆部門資料(1);
+
+            var result = new DepartmentJson();
+
+            result.InjectFrom(data);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
     }
