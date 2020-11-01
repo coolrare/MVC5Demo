@@ -526,6 +526,8 @@
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Metro\Index.cshtml" />
+    <Content Include="Views\Metro\_Layout.cshtml" />
+    <Content Include="Views\Metro\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
