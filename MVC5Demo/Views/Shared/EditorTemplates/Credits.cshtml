@@ -1,6 +1,12 @@
-﻿@model int
-
+﻿@model int?
+@{ 
+    var Credits = 0;
+    if (Model.HasValue)
+    {
+        Credits = Model.Value;
+    }
+}
 @for (int i = 1; i <= 5; i++)
 {
-    <label>@Html.RadioButton("", i, Model == i) @i</label>
+    <label>@Html.RadioButton("", i, Credits == i) @i</label>
 }
