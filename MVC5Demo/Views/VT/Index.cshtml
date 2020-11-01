@@ -1,1 +1,18 @@
-﻿
+﻿@foreach (var i in ViewBag.data)
+{
+    @i
+}
+
+
+@foreach (var i in ViewBag.data)
+{
+    @(i+" ")
+}
+
+
+<ul>
+@foreach (var i in ViewBag.data)
+{
+  <li>@i</li>
+}
+</ul>
