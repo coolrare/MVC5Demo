@@ -152,6 +152,7 @@
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ParpareDepartmentListForDropDownListAttribute.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\VTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -344,6 +345,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\ErrorDbEntityValidationException.cshtml" />
+    <Content Include="Views\VT\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
