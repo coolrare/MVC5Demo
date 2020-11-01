@@ -4,5 +4,40 @@
     "inputFiles": [
       "Bootstrap_Metro_Dashboard/index.html"
     ]
+  },
+  {
+    "outputFileName": "Bootstrap_Metro_Dashboard/js/bundle.js",
+    "inputFiles": [
+      "Bootstrap_Metro_Dashboard/js/jquery-1.9.1.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery-migrate-1.0.0.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery-ui-1.10.0.custom.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.chosen.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.cleditor.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.cookie.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.dataTables.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.elfinder.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.flot.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.flot.pie.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.flot.resize.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.flot.stack.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.gritter.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.imagesloaded.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.iphone.toggle.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.knob.modified.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.masonry.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.noty.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.raty.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.sparkline.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.ui.touch-punch.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.uniform.min.js",
+      "Bootstrap_Metro_Dashboard/js/jquery.uploadify-3.1.min.js",
+      "Bootstrap_Metro_Dashboard/js/modernizr.js",
+      "Bootstrap_Metro_Dashboard/js/retina.js",
+      "Bootstrap_Metro_Dashboard/js/bootstrap.min.js",
+      "Bootstrap_Metro_Dashboard/js/counter.js",
+      "Bootstrap_Metro_Dashboard/js/custom.js",
+      "Bootstrap_Metro_Dashboard/js/excanvas.js",
+      "Bootstrap_Metro_Dashboard/js/fullcalendar.min.js"
+    ]
   }
 ]
