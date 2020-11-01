@@ -12,6 +12,7 @@ namespace MVC5Demo.Models
         [StringLength(16)]
         public string Username { get; set; }
         [Required]
+        [DataType(DataType.Password)]
         [MinLength(3), MaxLength(16)]
         public string Password { get; set; }
     }

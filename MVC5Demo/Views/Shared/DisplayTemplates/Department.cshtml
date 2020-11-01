@@ -1,0 +1,44 @@
+﻿@model MVC5Demo.Models.Department
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Budget)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Budget)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.StartDate)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.StartDate)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.RowVersion)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.RowVersion)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Person.LastName)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Person.LastName)
+    </dd>
+
+</dl>
