@@ -164,6 +164,7 @@
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\MetroController.cs" />
     <Compile Include="Controllers\ParpareDepartmentListForDropDownListAttribute.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\VTController.cs" />
     <Compile Include="Global.asax.cs">
@@ -263,6 +264,13 @@
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Resource1.en-US.Designer.cs">
       <DependentUpon>Resource1.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -441,6 +449,44 @@
     <Content Include="Bootstrap_Metro_Dashboard\typography.html" />
     <Content Include="Bootstrap_Metro_Dashboard\ui.html" />
     <Content Include="Bootstrap_Metro_Dashboard\widgets.html" />
+    <None Include="CodeTemplates\ApiControllerEmpty\Controller.cs.t4" />
+    <None Include="CodeTemplates\ApiControllerEmpty\Controller.vb.t4" />
+    <None Include="CodeTemplates\ApiControllerWithActions\Controller.cs.t4" />
+    <None Include="CodeTemplates\ApiControllerWithActions\Controller.vb.t4" />
+    <None Include="CodeTemplates\ApiControllerWithContext\Controller.cs.t4" />
+    <None Include="CodeTemplates\ApiControllerWithContext\Controller.vb.t4" />
+    <None Include="CodeTemplates\ApiDependencyCodeGenerator\Global.asax.cs.t4" />
+    <None Include="CodeTemplates\ApiDependencyCodeGenerator\Global.asax.vb.t4" />
+    <None Include="CodeTemplates\ApiDependencyCodeGenerator\Global.cs.t4" />
+    <None Include="CodeTemplates\ApiDependencyCodeGenerator\Global.vb.t4" />
+    <None Include="CodeTemplates\ApiDependencyCodeGenerator\WebApiConfig.cs.t4" />
+    <None Include="CodeTemplates\ApiDependencyCodeGenerator\WebApiConfig.vb.t4" />
+    <None Include="CodeTemplates\MvcArea\Area.cs.t4" />
+    <None Include="CodeTemplates\MvcArea\Area.vb.t4" />
+    <None Include="CodeTemplates\MvcArea\web.cs.t4" />
+    <None Include="CodeTemplates\MvcArea\web.vb.t4" />
+    <None Include="CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
+    <None Include="CodeTemplates\MvcControllerEmpty\Controller.vb.t4" />
+    <None Include="CodeTemplates\MvcControllerWithActions\Controller.cs.t4" />
+    <None Include="CodeTemplates\MvcControllerWithActions\Controller.vb.t4" />
+    <None Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
+    <None Include="CodeTemplates\MvcViewWithoutModel\Empty.cs.t4" />
+    <None Include="CodeTemplates\MvcViewWithoutModel\Empty.vb.t4" />
+    <None Include="CodeTemplates\MvcViewWithoutModel\Imports.include.t4" />
+    <None Include="CodeTemplates\MvcView\Create.cs.t4" />
+    <None Include="CodeTemplates\MvcView\Delete.cs.t4" />
+    <None Include="CodeTemplates\MvcView\Details.cs.t4" />
+    <None Include="CodeTemplates\MvcView\Details2.cs.t4" />
+    <None Include="CodeTemplates\MvcView\Edit.cs.t4" />
+    <None Include="CodeTemplates\MvcView\Empty.cs.t4" />
+    <None Include="CodeTemplates\MvcView\Imports.include.t4" />
+    <None Include="CodeTemplates\MvcView\List.cs.t4" />
+    <None Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
+    <None Include="CodeTemplates\MvcView\ModelMetadataFunctions.vb.include.t4" />
+    <None Include="CodeTemplates\ODataControllerWithActions\Controller.cs.t4" />
+    <None Include="CodeTemplates\ODataControllerWithActions\Controller.vb.t4" />
+    <None Include="CodeTemplates\ODataControllerWithContext\Controller.cs.t4" />
+    <None Include="CodeTemplates\ODataControllerWithContext\Controller.vb.t4" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -468,6 +514,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>IRepository.cs</LastGenOutput>
     </Content>
+    <Content Include="Reports\WebForm1.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\ContosoUniversity.edmx">
@@ -550,6 +597,13 @@
     <Content Include="Views\Shared\DisplayTemplates\Credits.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Credits.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Department.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\Courses\Details2.cshtml" />
+    <Content Include="Views\Courses\Details3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
